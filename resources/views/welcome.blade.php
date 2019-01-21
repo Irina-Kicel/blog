@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Всем привет
+                    <h1>Всем привет</h1>
                 </div>
 
 
