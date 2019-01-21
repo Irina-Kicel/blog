@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +13,10 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('mainPage');
+
+Route::get('/login', 'TestController@showLoginForm')->name('loginRoute');
+Route::post('/login', 'TestController@postingLoginData')->name('loginRoutePost');
+
+Route::resource('posts', 'PostController');
+
