@@ -13,7 +13,7 @@ class TestController extends Controller
 {
     public function showLoginForm(Request $request)
     {
-        return view('login');
+        return view('blocks.login');
     }
 
     public function postingLoginData(Request $request)
@@ -22,10 +22,10 @@ class TestController extends Controller
         $password = $request->input('password');
 
         if ($login === '111' && $password === '222') {
-            return redirect()->route('mainPage');
+            return redirect()->route('home');
         }
 
-        return view('login', ['errorMessage' => 'Неправильный логин или пароль']);
+        return view('blocks.login', ['errorMessage' => 'Неправильный логин или пароль']);
     }
 
 }
