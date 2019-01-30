@@ -14,6 +14,6 @@ class IndexController extends SiteController
         $this->meta_desc = 'Сайт Садоводческий кооператив "Локомотив" создан для общения его членов';
         $this->title = 'Кооператив "Локомотив"';
 
-        return view('layouts.main');
+        return view('blocks.main');
     }
 }

@@ -33,7 +33,7 @@
             <!-- Menu -->
 
             @section('navigation')
-            {{--@include('blocks.navigation')--}}
+                @include('blocks.navigation')
             @show
         </div>
         <div class="column-right">

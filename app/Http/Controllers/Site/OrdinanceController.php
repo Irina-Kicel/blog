@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Site\SiteController;
 
-class UstavController extends SiteController
+class OrdinanceController extends SiteController
 {
     public function index()
     {
@@ -13,6 +13,6 @@ class UstavController extends SiteController
         $this->meta_desc = 'Устав Садоводческого кооператива "Локомотив"';
         $this->title = 'Устав Садоводческого кооператива "Локомотив"';
 
-        return view('layouts.ustav');
+        return view('blocks.ordinance');
     }
 }
