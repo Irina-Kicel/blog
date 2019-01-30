@@ -2,9 +2,9 @@
 @section('title', 'Устав садоводческого кооператива "Локомотив"')
 
 @section('navigation')
-    @include('blocks.navigation')
+    @parent
 @endsection
 
 @section('content')
-    @include('blocks.ustav_content')
+    @include('blocks.ordinance_content')
 @endsection

@@ -17,9 +17,9 @@ Route::group(['prefix' => '/articles'], function(){
     Route::get('/cat/{cat_alias?}', 'Site\ArticlesController@show')->where('cat_alias', '[a-z]+');
 });
 
-Route::get('/ustav','Site\UstavController@index');
-Route::resource('/comments/{id?}', 'Site\CommentsController');
-
+Route::get('/ordinance','Site\OrdinanceController@index');
+Route::get('/comments', 'Site\CommentsController@index');
+Route::post('/comments', 'Site\CommentsController@store');
 //Admin
 Route::group(['prefix' => '/admin'],function() {
 

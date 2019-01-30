@@ -3,7 +3,7 @@
 @section('title', 'Вопросы по кооперативу "Локомотив"')
 
 @section('navigation')
-    @include('blocks.navigation')
+    @parent
 @endsection
 
 @section('content')

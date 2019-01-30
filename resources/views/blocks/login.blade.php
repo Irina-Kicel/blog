@@ -2,6 +2,10 @@
 
 @section('title', 'Страница регистрации')
 
+@section('navigation')
+
+@endsection
+
 @section('content')
 
     <div class="box-in">
