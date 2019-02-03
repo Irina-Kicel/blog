@@ -1,36 +1,34 @@
 <?php
 use Illuminate\Support\Facades\Route;
+//Site
+Route::group(['prefix' => '/articles', 'namespace' => 'Site'], function(){
+    Route::get('/', 'ArticlesController@index');
+    Route::get('/{id}', 'ArticlesController@oneIndex');
+    Route::get('/cat/{cat_alias?}', 'ArticlesController@show')->where('cat_alias', '[a-z-]+');
+});
 
-/*Route::get('/', function () {
-    return view('welcome');
-})->name('mainPage');*/
+Route::group(['namespace' => 'Site'], function(){
+    Route::get('/', 'IndexController@index')->name('home');
+    Route::get('/ordinance','OrdinanceController@index');
+    Route::get('/comments', 'CommentsController@index');
+    Route::post('/comments', 'CommentsController@store');
+});
 
 Route::get('/login', 'TestController@showLoginForm')->name('loginRoute');
 Route::post('/login', 'TestController@postingLoginData')->name('loginRoutePost');
 
-//Route::resource('posts', 'PostController');
-
-Route::get('/', 'Site\IndexController@index')->name('home');
-
-Route::group(['prefix' => '/articles'], function(){
-    Route::get('/', 'Site\ArticlesController@index');
-    Route::get('/cat/{cat_alias?}', 'Site\ArticlesController@show')->where('cat_alias', '[a-z]+');
-});
-
-Route::get('/ordinance','Site\OrdinanceController@index');
-Route::get('/comments', 'Site\CommentsController@index');
-Route::post('/comments', 'Site\CommentsController@store');
 //Admin
-Route::group(['prefix' => '/admin'],function() {
-
-    Route::get('/','Admin\IndexController@index');
-    Route::resource('/articles','Admin\ArticlesController');
-    Route::resource('/permissions','Admin\PermissionsController');
-    Route::resource('/menus','Admin\MenusController');
-    Route::resource('/users','Admin\UsersController');
-
+Route::group(['prefix' => '/admin', 'namespace' => 'Admin'],function() {
+    Route::get('/','IndexController@index');
+    Route::resource('/articles','ArticlesController');
+    Route::resource('/permissions','PermissionsController');
+    Route::resource('/menus','MenusController');
+    Route::resource('/users','UsersController');
+});
+Route::group(['namespace' => 'Auth'], function(){
+    Route::get('/login_admin','AuthController@showLoginForm')->name('loginAdmin');
+    Route::post('/login_admin','AuthController@login')->name('loginPostAdmin');
+    Route::get('/logout_admin','AuthController@logout');
 });
 
-Route::get('/login_admin','Auth\AuthController@showLoginForm')->name('loginAdmin');
-Route::post('/login_admin','Auth\AuthController@login')->name('loginPostAdmin');
-Route::get('/logout_admin','Auth\AuthController@logout');
+Route::view('/404', 'blocks.404');

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\AdminController;
 
-class ArticlesController extends Controller
+class ArticlesController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,11 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $this->keywords = 'Админ панель по управлению сайтом';
+        $this->meta_desc = 'Админ панель по управлению сайтом';
+        $this->title = 'Менеджер сайта Кооператив "Локомотив"';
+
+        return view('admin.articles_content');
     }
 
     /**
@@ -24,7 +28,11 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        $this->keywords = 'Админ панель по управлению сайтом';
+        $this->meta_desc = 'Админ панель по управлению сайтом';
+        $this->title = "Добавить новый материал";
+
+        return view('admin.articles_create');
     }
 
     /**
