@@ -1,6 +1,7 @@
 <div id="on-top" onclick="to_top()">На верх</div>
 <div class="box-in-1">
 
+    <p class="message"><a href="{{ asset('/login') }}">Войти на сайт</a></p>
     <h2>Садоводческий потребительский кооператив "Локомотив"</h2>
     <p><img src="{{ asset('/images/home.jpg') }}"></p>
     <p>Кооператив является некоммерческой организацией,

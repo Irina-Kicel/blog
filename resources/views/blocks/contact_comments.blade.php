@@ -22,7 +22,7 @@
 		<li id="li-comment59">
      <div id="comment59">
 	  <div class="commentContent">
-        <h6>Лена<span class="date">29 : 01, 2019</span> </h6>
+        <h6>Лена<span class="date">{{ $date }}</span> </h6>
         <div class="commentNumber">#</div>
 		<div class="comment-body">
             Спасибо председателю за объявления
@@ -37,7 +37,7 @@
 	 <li id="li-comment60">
      <div id="comment60">
 	  <div class="commentContent">
-        <h6>Катерина<span class="date">29 : 01, 2019</span> </h6>
+        <h6>Катерина<span class="date">{{ $date }}</span> </h6>
         <div class="commentNumber">#</div>
 		<div class="comment-body">
             Добрый день. Когда будет следующее собрание в кооперативе?
@@ -50,7 +50,7 @@
 	<li id="li-comment61">
      <div id="comment61">
 	  <div class="commentContent">
-        <h6>Председатель<span class="date">30 : 01, 2019</span> </h6>
+        <h6>Председатель<span class="date">{{ $date }}</span> </h6>
         <div class="commentNumber">#</div>
 		<div class="comment-body">
             Здравствуйте Катерина. Собрание будет в следующую субботу 9 февраля в 11 часов.
@@ -63,7 +63,7 @@
 	<li id="li-comment99">
      <div id="comment99">
 	  <div class="commentContent">
-        <h6>Лариса Шакина<span class="date">30 : 01, 2019</span> </h6>
+        <h6>Лариса Шакина<span class="date">{{ $date }}</span> </h6>
         <div class="commentNumber">#</div>
 		<div class="comment-body">
            Председатель, подскажите, когда приедит казначей?

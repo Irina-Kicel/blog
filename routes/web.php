@@ -14,9 +14,10 @@ Route::group(['namespace' => 'Site'], function(){
     Route::post('/comments', 'CommentsController@store');
 });
 
-Route::get('/login', 'TestController@showLoginForm')->name('loginRoute');
-Route::post('/login', 'TestController@postingLoginData')->name('loginRoutePost');
-
+Route::get('/register', 'RegisterController@showRegisterForm')->name('registerRoute');
+Route::post('/register', 'RegisterController@postingRegisterData')->name('registerRoutePost');
+Route::get('/login', 'LoginController@showLoginForm')->name('loginRoute');
+Route::post('/login', 'LoginController@postingLoginData')->name('loginRoutePost');
 //Admin
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'],function() {
     Route::get('/','IndexController@index');
@@ -25,10 +26,10 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'],function() {
     Route::resource('/menus','MenusController');
     Route::resource('/users','UsersController');
 });
-Route::group(['namespace' => 'Auth'], function(){
-    Route::get('/login_admin','AuthController@showLoginForm')->name('loginAdmin');
-    Route::post('/login_admin','AuthController@login')->name('loginPostAdmin');
-    Route::get('/logout_admin','AuthController@logout');
+Route::group(['prefix' => '/admin', 'namespace' => 'Auth'], function(){
+    Route::get('/login','AuthController@showLoginForm')->name('loginAdmin');
+    Route::post('/login','AuthController@login')->name('loginPostAdmin');
+    Route::get('/logout','AuthController@logout');
 });
 
 Route::view('/404', 'blocks.404');
