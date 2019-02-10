@@ -87,7 +87,7 @@ font-family: 'Marck Script', cursive;
 font-size: x-large;
 }
 .box-in h3{
-margin: 4px 0 10px 50px;
+margin: 20px 0 10px 50px;
 color: #004F8B;
 }
 .box-in-1 h2 {
@@ -222,7 +222,8 @@ background-color:#ECECEC;
  form {
 margin: 10px;
 padding-left: 20px;	
-}             
+}
+form .message {font-size:14px; color:red; height:14px;}
 .contact-form { margin-top:30px; width:92%; }   
 .contact-form fieldset {padding:0;}          
 .contact-form ul { margin:0; list-style:none; }  
