@@ -37,15 +37,13 @@
                                     <span class="label">Email</span><br />
                                 </label>
                                 <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                                    <input type="email" name="text" id="login" class="required {{ $errors->has('email') ? ' error' : ''}}" value="{{ old('email','')}}" /></div>
+                                    <input type="email" name="email" id="login" class="required {{ $errors->has('email') ? ' error' : ''}}" value="{{ old('email','')}}" /></div>
                                 @if ($errors->has('email'))
 
                                     <p class="message"><strong>{{ $errors->first('email') }}</strong></p>
 
                                 @endif
                             </li>
-
-
 
                             <li class="text-field">
                             <label for="password">
@@ -85,6 +83,7 @@
                                     <p class="message"><strong>{{ $errors->first('telephone') }}</strong></p>
 
                                 @endif
+
                             </li>
                             <li class="submit-button">
 

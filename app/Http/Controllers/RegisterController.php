@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 class RegisterController extends SiteController
 {
 
@@ -25,12 +26,8 @@ class RegisterController extends SiteController
      */
     public function postingRegisterData(Request $request)
     {
-        /*$login = $request->input('login');
-        $password = $request->input('password');
-
-        if ($login === '111' && $password === '222') {
-            return redirect()->route('home');
-        }*/
+       $data = $request->except('_token', 'password2', 'yit_sendmail');
+       print_r($data);
 
         $validator = Validator::make($request->all(), [
             'login' => 'required|min:3|max:20',
@@ -41,16 +38,19 @@ class RegisterController extends SiteController
         ]);
         if ($validator->fails()) {
 
-      /*  $validator->errors()->all('<p class="message"> :message </p>');*/
-
             return redirect()
                 ->back()
                 ->withErrors($validator)
                 ->withInput();
         }
+            DB::table('users')
+              ->insert(['login' => $data['login'],
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'telephone' => $data['telephone']
+            ]);
 
-
-        return view('blocks.register')->with('menus',$this->menus);
+        return view('blocks.main')->with('menus',$this->menus);
     }
 
 }
