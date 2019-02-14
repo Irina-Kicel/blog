@@ -21,6 +21,11 @@ class LoginController extends SiteController
 
     public function postingLoginData(Request $request)
     {
+        $data = $request->except('_token', 'yit_sendmail');
+        print_r($data);
+        $login = $data['login'];
+        $password = $data['password'];
+
         $validator = Validator::make($request->all(), [
             'login' => 'required|min:3|max:20',
             'password' => 'required|max:32|min:6'
@@ -32,12 +37,15 @@ class LoginController extends SiteController
                 ->back()
                 ->withErrors($validator)
                 ->withInput();
-        }/*else{
-            $users = DB::table('users')
+        }
+                DB::table('users')
                 ->select('login','password')
-                ->where('password', $password);
-        }*/
+                ->where([
+                    ['login', $login],
+                    ['password', $password]
+                   ]);
 
-        return view('blocks.login')->with('menus',$this->menus);
+
+        return view('blocks.main')->with('menus',$this->menus);
     }
 }
