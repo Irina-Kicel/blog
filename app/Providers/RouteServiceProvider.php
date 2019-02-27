@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
-
+   // protected $adminNamespace = 'App\Http\Controllers\Admin';
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -39,7 +39,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+       /* $this->mapAdminRoutes();
+        $this->mapImageRoutes();
+        $this->mapDownloadRoutes();*/
     }
 
     /**
@@ -70,4 +72,41 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
+    /*protected function mapAdminRoutes()
+    {
+        Route::middleware('web')
+            ->prefix('/admin')
+            ->namespace($this->adminNamespace)
+            ->group(base_path('routes/admin.php'));
+    }
+
+    /**
+     * Define the "images" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+   /* protected function mapImageRoutes()
+    {
+        Route::middleware('web')
+            ->prefix('/image')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/image.php'));
+    }*/
+
+    /**
+     * Define the "download" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+   /* protected function mapDownloadRoutes()
+    {
+        Route::middleware('web')
+            ->prefix('/file')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/file.php'));
+    }*/
 }

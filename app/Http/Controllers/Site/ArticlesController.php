@@ -18,28 +18,25 @@ class ArticlesController extends SiteController
     public function index()
     {
         $this->keywords = 'Садоводческий кооператив';
-        $this->meta_desc = 'Сайт Садоводческий кооператив "Локомотив" создан для общения его членов';
         $this->title = 'Кооператив "Локомотив"';
 
-        return view('blocks.articles')->with(['menus'=>$this->menus,'date'=>$this->date]);
+        return view('blocks.articles')->with('date', $this->date);
     }
 
     public function oneIndex($id = false)
     {
         $this->keywords = 'Садоводческий кооператив';
-        $this->meta_desc = 'Сайт Садоводческий кооператив "Локомотив" создан для общения его членов';
         $this->title = 'Кооператив "Локомотив"';
 
-        return view('blocks.article_content')->with(['menus'=>$this->menus,'date'=>$this->date]);
+        return view('blocks.article_content')->with('date', $this->date);
     }
 
     public function show($cat_alias = false)
     {
         $this->keywords = 'Садоводческий кооператив';
-        $this->meta_desc = 'Сайт Садоводческий кооператив "Локомотив" создан для общения его членов';
         $this->title = 'Кооператив "Локомотив"';
 
 
-        return view('blocks.articles_content')->with(['menus'=>$this->menus,'date'=>$this->date]);
+        return view('blocks.articles_content')->with('date', $this->date);
     }
 }

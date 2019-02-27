@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Site\SiteController;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -16,36 +17,45 @@ class LoginController extends SiteController
 {
     public function showLoginForm(Request $request)
     {
-        return view('blocks.login')->with('menus',$this->menus);
+        return view('blocks.login');
     }
 
-    public function postingLoginData(Request $request)
+    public function postingLoginData(LoginRequest $request)
+
     {
         $data = $request->except('_token', 'yit_sendmail');
-        print_r($data);
-        $login = $data['login'];
-        $password = $data['password'];
 
-        $validator = Validator::make($request->all(), [
-            'login' => 'required|min:3|max:20',
-            'password' => 'required|max:32|min:6'
-        ]);
-
-        if ($validator->fails()) {
+        if(!$data){
+            return redirect()
+                ->back()
+                ->with('message', 'Введен неверный пароль!')
+                -withInput();
+        }
+      /*  if ($request->fails()) {
 
             return redirect()
                 ->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-                DB::table('users')
+                ->withErrors($request)
+                ->withInput();*/
+       $login = $data['login'];
+        $password = $data['password'];
+
+         $sql = DB::table('users')
                 ->select('login','password')
                 ->where([
                     ['login', $login],
                     ['password', $password]
-                   ]);
+                ]);
 
 
-        return view('blocks.main')->with('menus',$this->menus);
+        if (!$sql) {
+
+            return redirect()
+                ->back()
+                ->withErrors($request)
+                ->withInput();
+        }
+
+        return view('blocks.main');
     }
 }

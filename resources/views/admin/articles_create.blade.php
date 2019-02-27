@@ -9,14 +9,14 @@
 @section('content')
 <div id="content-page" class="content group">
     <div class="hentry group">
-        <form class="contact-form" action="{{asset('/admin/articles')}}" method="post">
+        <form class="contact-form" action="{{ route('articles.store') }}" method="post" enctype="multipart/form-data">
             <input name="_token" type="hidden" value="">
             <ul>
                 <li class="text-field">
+                    <div class="msg-error">{{ $errors->first('title') }}</div>
                     <label for="name-contact-us">
-                        <span class="label">Название:</span>
-                        <br />
-                        <span class="sublabel">Заголовок материала</span><br />
+                        <span class="label">Заголовок страницы:</span>
+
                     </label>
                     <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
                         <input placeholder="Введите название страницы" name="title" type="text">
@@ -26,63 +26,53 @@
                 <li class="text-field">
                     <label for="name-contact-us">
                         <span class="label">Ключевые слова:</span>
-                        <br />
-                        <span class="sublabel">Заголовок материала</span><br />
+
                     </label>
                     <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                        <input placeholder="Введите ключевые слова" name="keywords" type="text">
+                        <input placeholder="Введите ключевые слова" name="description" type="text">
                     </div>
                 </li>
 
-                <li class="text-field">
-                    <label for="name-contact-us">
-                        <span class="label">Мета описание:</span>
-                        <br />
-                        <span class="sublabel">Заголовок материала</span><br />
+
+                <li class="textarea-field">
+
+                    <div class="msg-error">{{ $errors->first('announce') }}</div>
+                    <label for="message-contact-us">
+                        <span class="label">Аннонс:</span>
                     </label>
-                    <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                        <input placeholder="Введите название страницы" name="meta_desc" type="text">
+                    <div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
+                        <textarea id="editor" class="form-control" placeholder="Введите аннонс страницы" name="announce" cols="50" rows="10"></textarea>
                     </div>
+
+                </li>
+
+
+                <li class="textarea-field">
+                    <div class="msg-error">{{ $errors->first('text') }}</div>
+                    <label for="message-contact-us">
+                        <span class="label">Текст:</span>
+                    </label>
+                    <div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
+                        <textarea id="editor2" class="form-control" placeholder="Введите текст страницы" name="text" cols="50" rows="10"></textarea>
+                    </div>
+
                 </li>
 
                 <li class="text-field">
                     <label for="name-contact-us">
                         <span class="label">Псевдоним:</span>
-                        <br />
-                        <span class="sublabel">введите псевдоним</span><br />
                     </label>
                     <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                        <input placeholder="Введите псевдоним страницы" name="alias" type="text">
+                        <input placeholder="Введите псевдоним страницы" name="slug" type="text">
                     </div>
-                </li>
-
-                <li class="textarea-field">
-                    <label for="message-contact-us">
-                        <span class="label">Краткое описание:</span>
-                    </label>
-                    <div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
-                        <textarea id="editor" class="form-control" placeholder="Введите текст страницы" name="desc" cols="50" rows="10"></textarea>
-                    </div>
-                    <div class="msg-error"></div>
-                </li>
-
-                <li class="textarea-field">
-                    <label for="message-contact-us">
-                        <span class="label">Описание:</span>
-                    </label>
-                    <div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
-                        <textarea id="editor2" class="form-control" placeholder="Введите текст страницы" name="text" cols="50" rows="10"></textarea>
-                    </div>
-                    <div class="msg-error"></div>
                 </li>
 
 
 
                 <li class="text-field">
                     <label for="name-contact-us">
-                        <span class="label">Изображение:</span>
-                        <br />
-                        <span class="sublabel">Изображение материала</span><br />
+                        <span class="label">Картинка:</span>
+
                     </label>
                     <div class="input-prepend">
                         <input class="filestyle" data-buttonText="Выберите изображение" data-buttonName="btn-primary" data-placeholder="Файла нет" name="image" type="file">
@@ -93,11 +83,16 @@
                 <li class="text-field">
                     <label for="name-contact-us">
                         <span class="label">Категория:</span>
-                        <br />
-                        <span class="sublabel">Категория материала</span><br />
+                        <br>
                     </label>
                     <div class="input-prepend">
-                        <select name="category_id"><optgroup label="Объявления"><option value="2">По электроэнергии</option><option value="3">По воде</option><option value="4">По взносам</option></optgroup></select>
+
+                        <select multiple name="cat[]"><optgroup label="Категория">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </optgroup></select>
+
                     </div>
 
                 </li>

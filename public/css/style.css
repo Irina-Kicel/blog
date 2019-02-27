@@ -40,7 +40,7 @@ padding-bottom: 90px;
 text-align: left;
 }
 #wrapper-admin {
-width: 90%;
+width: 80%;
 margin: 60px auto 0 auto;
 padding-bottom: 90px;
 text-align: left;
@@ -77,8 +77,9 @@ padding-bottom: 12px;
 
 .container {
 	display: grid;
-	grid-template-columns: 30px minmax(100px, 1fr) minmax(200px, 2fr) minmax(150px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
+	grid-template-columns: 30px minmax(80px, 1fr) minmax(100px, 1fr) minmax(150px, 2fr) minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
 	grid-gap: 5px 5px;
+	margin-left: 20px;
 }
 
 
@@ -223,19 +224,19 @@ background-color:#ECECEC;
 margin: 10px;
 padding-left: 20px;	
 }
-form .message {font-size:14px; color:red; height:14px;}
-.contact-form { margin-top:30px; width:92%; }   
+form .message {font-size:15px; color:red; height:15px;  margin-bottom:10px;}
+.contact-form { margin-top:30px; width:92%; }
 .contact-form fieldset {padding:0;}          
 .contact-form ul { margin:0; list-style:none; }  
 .contact-form li { width: 44.2%; float: left; margin: 0 5% 2% 0; }
 
-.contact-form label span.label { font-size:14px; margin-left:15px;}
-.contact-form li.textarea-field { clear:both; width:auto; float:none; }
+.contact-form label span.label { font-size:15px; margin:10px;}
+.contact-form li.textarea-field { clear:both;  width:auto; float:none; margin-left:15px; }
 .contact-form li.text-field input { margin:10px; padding:10px; }
 .contact-form li.text-field input { font-size: 12px; background-color:#fff; width:95%; }
 .contact-form li select { padding:10px; }
 
-.contact-form li input.error, .content .contact-form li textarea.error, .content .contact-form li select.error { /*background-image:url('images/icons/error.png');*/ border:1px solid #cf0606; }
+.contact-form li input.error, .content .contact-form li textarea.error, .content .contact-form li select.error { /*background-image:url('images/icons/error.png');*/ border:2px solid #cf0606; }
 .contact-form li.success input, .content .contact-form li.success textarea, .content .contact-form li.success select,
 /*.contact-form li input.success, .content .contact-form li textarea.success, .content .contact-form li select.success { background-image:url('images/icons/success.png'); }  */
 .contact-form li div.msg-error { font-style:normal; font-size:11px; color:#cf0606; height:14px; }    
