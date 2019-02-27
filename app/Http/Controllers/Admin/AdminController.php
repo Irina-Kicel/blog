@@ -17,6 +17,11 @@ class AdminController extends Controller
     protected $vars = [];
 
     protected $keywords;
-    protected $meta_desc;
     protected $title;
+
+    public function __construct() {
+
+
+
+    }
 }

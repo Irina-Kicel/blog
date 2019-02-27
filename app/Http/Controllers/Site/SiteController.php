@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 class SiteController extends Controller
 {
     protected $keywords;
-    protected $meta_desc;
     protected $title;
     protected $menus;
     protected $template;
@@ -17,6 +16,6 @@ class SiteController extends Controller
 
    public function __construct()
     {
-        $this->menus = resolve('MyMenu')->getMenu();
+       /* $this->menus = resolve('MyMenu')->getMenu();*/
     }
 }
